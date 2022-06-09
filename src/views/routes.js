@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router()
 const homeControler = require('../controlers/homeControler')
-const aboutControler = require('../controlers/aboutControler')
-const createControler = require('../controlers/createControler')
+const cubeControler = require('../controlers/cubeControler')
 
-router.get('/',homeControler.index)
-router.get('/about',aboutControler.about)
-router.get('/create',createControler.create)
+router.use('/', homeControler)
+router.use('/cube',cubeControler)
 
 
 module.exports=router;

@@ -8,6 +8,7 @@ const app = express()
 
 app.use(express.static('./src/public'))
 
+app.use(express.urlencoded({extended:false}))
 
 app.engine('hbs', handlebars.engine({
     extname: 'hbs'
