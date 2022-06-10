@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router()
-const cubes= require('../db.json')
+const dataService = require('../services/dataService')
 
-router.get('/',(req,res)=>{
+router.get('/',(req,res)=>{    
+    let {search,from,to} = req.query;
+
+    const cubes = dataService.getAll(search,from,to)
+
     res.render('index', {cubes})
 
 })
