@@ -4,7 +4,7 @@ const path = require('path')
 
 exports.save = (cube)=>{
 
-    cubes.push(cube)
+    cubes.push({_id: cubes[cubes.length -1]._id + 1,...cube})
 
     return fs.writeFile(path.resolve('src','db.json'), JSON.stringify(cubes,'',4),{encoding:'utf-8'})
 
