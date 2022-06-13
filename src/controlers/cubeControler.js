@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
-
-const res = require('express/lib/response');
+// const res = require('express/lib/response');
 const dataService = require('../services/dataService')
 
 
@@ -28,4 +27,7 @@ router.get('/:_id',async (req,res)=>{
     res.render('details', cube)
 })
 
+router.get('/create-article',(req,res)=>{
+    res.render('createAccessory')
+})
 module.exports = router;

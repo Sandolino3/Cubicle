@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router()
 const dataService = require('../services/dataService')
 
-router.get('/',(req,res)=>{    
+router.get('/',async (req,res)=>{    
     let {search,from,to} = req.query;
 
-    const cubes = dataService.getAll(search,from,to)
+    const cubes = await dataService.getAll(search,from,to)
 
     res.render('index', {cubes})
 
