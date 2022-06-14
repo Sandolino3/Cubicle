@@ -3,6 +3,7 @@
 // const mongoose = require('mongoose')
 
 const Cube = require('../models/cubeModel')
+const Accsessory = require('../models/articleMocel')
 
 exports.save = (cub)=>{
 return Cube.create(cub)
@@ -19,4 +20,9 @@ exports.getAll = (search = '',fromI, toI)=>{
     // // .filter(x => x.dificultyLevel < to)
 
     return Cube.find().lean()
+}
+
+
+exports.createAccsessory = (data)=>{
+    Accsessory.create(data)
 }
