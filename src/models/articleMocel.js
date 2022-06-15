@@ -14,11 +14,20 @@ description:{
 imageUrl:{
     type: String,
     required: true,
-    // validate: {
-    //     validator: /^https?/g,
-    //     message: 'path should be URL'
-    // }
+    validate: {
+        // validator: /^https?/g,
+        validator: function() {
+            return this.imageUrl.startsWith('http')
+        },
+        message: 'path should be URL'
+    }
 },
+cubes:[
+{
+type: mongoose.Types.ObjectId,
+ref:'Cube'
+}
+]
 })
 
 const Accsessory = mongoose.model('Accsessory', articleSchema)

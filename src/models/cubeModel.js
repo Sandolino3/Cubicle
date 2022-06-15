@@ -25,6 +25,12 @@ const cubeSchema = new mongoose.Schema({
         min:1,
         max:6,
     },
+    accsessories:[
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Accsessory'
+        }
+    ]
 })
 
 // cubeSchema.path('imageURL').validate(function(){
