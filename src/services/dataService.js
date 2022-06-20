@@ -9,7 +9,10 @@ exports.save = (cub)=>{
 return Cube.create(cub)
 }
 
-exports.getOne = (id) => Cube.findById(id)
+exports.getOne = (id) => Cube.findById(id).populate('accsessories')
+
+
+
 
 exports.getAll = (search = '',fromI, toI)=>{
     // let from = Number(fromI || 0)
@@ -25,4 +28,21 @@ exports.getAll = (search = '',fromI, toI)=>{
 
 exports.createAccsessory = (data)=>{
     Accsessory.create(data)
+}
+
+exports.getAllAccsessorys = ()=>{
+    return Accsessory.find().lean()
+}
+
+exports.attachAccs = async (cubeId, accsesId)=>{
+    const cube = await Cube.findById(cubeId)
+    const accsessory = await Accsessory.findById(accsesId)
+
+    cube.accsessories.push(accsessory)
+    accsessory.cubes.push(cube)
+    
+    await cube.save();
+    await accsessory.save();
+
+    return cube;
 }

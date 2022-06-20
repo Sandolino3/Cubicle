@@ -23,11 +23,11 @@ imageUrl:{
     }
 },
 cubes:[
-{
-type: mongoose.Types.ObjectId,
-ref:'Cube'
-}
-]
+    {
+    type: mongoose.Types.ObjectId,
+    ref:'Cube'
+    }
+],
 })
 
 const Accsessory = mongoose.model('Accsessory', articleSchema)

@@ -7,7 +7,7 @@ router.get('/',async (req,res)=>{
 
     const cubes = await dataService.getAll(search,from,to)
 
-    res.render('index', {cubes})
+    res.render('index', { cubes })
 
 })
 

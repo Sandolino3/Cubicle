@@ -23,8 +23,15 @@ router.post('/create', (req,res)=>{
 })
 
 router.get('/:_id',async (req,res)=>{
-    const cube = await dataService.getOne(req.params._id)
-    res.render('details', cube)
+ 
+    try {
+        const cube = await dataService.getOne(req.params._id)
+        console.log(cube)
+        res.render('details', cube )
+
+    } catch (e) {
+        console.error(e);
+    } 
 })
 
 module.exports = router;
