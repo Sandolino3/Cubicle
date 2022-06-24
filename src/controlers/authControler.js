@@ -4,6 +4,14 @@ const authService = require('../services/authService')
 router.get('/login', (req,res)=>{
     res.render('loginPage')
 })
+router.post('/login',async (req,res)=>{
+    let token = await authService.login(req.body)
+    console.log(token)
+    if (!token) {
+       return res.redirect('/404')
+    }
+    res.redirect('/')
+})
 
 // router.get('/logout', (req,res)=>{
 //     res.render('loginPage')
