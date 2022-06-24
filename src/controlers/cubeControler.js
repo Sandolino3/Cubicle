@@ -26,7 +26,6 @@ router.get('/:_id',async (req,res)=>{
  
     try {
         const cube = await dataService.getOne(req.params._id)
-        console.log(cube)
         res.render('details', cube )
 
     } catch (e) {
