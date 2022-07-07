@@ -4,6 +4,7 @@ const routes = require('./views/routes')
 const cookieParser = require('cookie-parser')
 
 const {initDatabase} = require('./config/database')
+const{auth} = require('./midlewares/authMidleware')
 
 
 const app = express()
@@ -14,7 +15,7 @@ app.use(express.urlencoded({extended:false}))
 
 require('./config/handlebars')(app)
 
-
+app.use(auth)
 app.use(routes)
 
 // app.get('/', homeControler.index)

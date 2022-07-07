@@ -27,4 +27,5 @@ await dataService.attachAccs(cubeId, accsId)
 res.redirect('/')
 })
 
+
 module.exports = router;

@@ -1,16 +1,17 @@
 const router = require('express').Router()
 const authService = require('../services/authService')
+const {sesionName} = require('../config')
 
 router.get('/login', (req,res)=>{
     res.render('loginPage')
 })
 router.post('/login',async (req,res)=>{
     let token = await authService.login(req.body)
-    console.log(token)
+    // console.log(token)
     if (!token) {
        return res.redirect('/404')
     }
-    res.cookie('user-sesion', token)
+    res.cookie(sesionName, token, {httpOnly: true})
     res.redirect('/')
 })
 

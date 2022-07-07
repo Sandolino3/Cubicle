@@ -46,3 +46,7 @@ exports.attachAccs = async (cubeId, accsesId)=>{
 
     return cube;
 }
+
+exports.edit= (id, data)=>{
+    return Cube.findByIdAndUpdate(id, data)
+ }

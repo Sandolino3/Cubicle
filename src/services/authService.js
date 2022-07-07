@@ -2,7 +2,9 @@ const User = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const secret = 'jashdjkasdhjasldhasdjlh'
+const {secret,rounds} = require('../config')
+
+
 
 exports.register = async ({username,password,repeatPassword})=>{
     // User.create(user)
@@ -10,7 +12,7 @@ exports.register = async ({username,password,repeatPassword})=>{
     if (password !== repeatPassword) {
         return false
     }
-    let hashPass = await bcrypt.hash(password, 10)
+    let hashPass = await bcrypt.hash(password, rounds)
     let createUser = User.create({
         username,
         password: hashPass,
